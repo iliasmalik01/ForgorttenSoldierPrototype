@@ -45,7 +45,10 @@ public class SmallTitanAI : MonoBehaviour
 
     private void Patrolling()
     {
-        if (!walkPointSet) SearchWalkPoint();
+        if (!walkPointSet) 
+        {
+            SearchWalkPoint();
+        }
 
         if (walkPointSet)
             agent.SetDestination(walkPoint);

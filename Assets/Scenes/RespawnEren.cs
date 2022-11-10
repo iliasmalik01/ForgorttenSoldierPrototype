@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RespawnEren : MonoBehaviour
 {
+    public float health;
     [SerializeField] private Transform player;
     [SerializeField] private Transform respawnPoint;
 
