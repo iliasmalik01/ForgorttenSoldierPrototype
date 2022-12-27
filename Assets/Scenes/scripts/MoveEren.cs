@@ -15,3 +15,4 @@ public class MoveEren : MonoBehaviour
         transform.position += moveDirection * speed;
     }
 }
+
