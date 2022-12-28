@@ -1,3 +1,0 @@
-# ForgorttenSoldierPrototype
-
-dsa
