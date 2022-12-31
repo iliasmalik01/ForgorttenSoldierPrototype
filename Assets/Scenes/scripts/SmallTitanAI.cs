@@ -12,6 +12,7 @@ public class SmallTitanAI : MonoBehaviour
     public LayerMask whatIsGround, whatIsPlayer;
 
     public float health;
+    public float attack;
 
     //Patrol
     public Vector3 walkPoint;
@@ -25,6 +26,8 @@ public class SmallTitanAI : MonoBehaviour
     //States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
+
+    public Animator anim;
 
     private void Awake()
     {
