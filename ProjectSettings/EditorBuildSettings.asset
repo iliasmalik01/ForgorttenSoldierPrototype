@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/testing camra/Story.unity
     guid: 77ec1d9dc5673b94e9a1f0472781b793
   - enabled: 1
-    path: Assets/Scenes/testing camra/EnemyAttack.unity
-    guid: c2685de215efa4adea3dc834634a380a
+    path: Assets/Scenes/testing camra/NewEnemyAttack.unity
+    guid: 0edcf2eeb00e80e4c90b6afbea1f783d
   - enabled: 1
     path: Assets/Scenes/testing camra/Congrats.unity
     guid: affe50591e5d7d4418ddd0557b4caa4c
