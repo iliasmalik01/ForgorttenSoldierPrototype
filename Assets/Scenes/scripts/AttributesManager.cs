@@ -10,33 +10,38 @@ public class AttributesManager : MonoBehaviour
     public int attack;
 
     public HealthBar healthBar;
-    public Animator anim;
+
+    public Animator anima;
 
     public void TakeDamage(int amount)
     {
+        anima.SetTrigger("Hit");
         health -= amount;
         healthBar.SetHealth(health);
         Vector3 randomness = new Vector3(Random.Range(0f, 0.25f), Random.Range(0f, 0.25f), Random.Range(0f, 0.25f));
-        DamagePopUpGenerator.current.CreatePopUp(transform.position + randomness, amount.ToString(), Color.yellow);
-
-        if (anim != null)
-        {
-            anim.SetTrigger("Hit");
-        }
+        DamagePopUpGenerator.current.CreatePopUp(transform.position + randomness, amount.ToString(), Color.red);
     }
 
     public void Heal()
     {
-        if (health != 100)
+        Vector3 randomness = new Vector3(Random.Range(0f, 0.25f), Random.Range(0f, 0.25f), Random.Range(0f, 0.25f));
+        if (health == 100)
+        {
+            DamagePopUpGenerator.current.CreatePopUp(transform.position + randomness, "100", Color.blue);
+        }
+
+        if (health <= 80)
         {
             health += 20;
+            DamagePopUpGenerator.current.CreatePopUp(transform.position + randomness, "+20", Color.green);
         }
 
-        else if (health > 80)
+        else if (health >= 80)
         {
+            DamagePopUpGenerator.current.CreatePopUp(transform.position + randomness, "+"+(100-health).ToString(), Color.yellow);
             health = 100;
         }
-
+        
         healthBar.SetHealth(health);
     }
 
@@ -49,15 +54,9 @@ public class AttributesManager : MonoBehaviour
         }
     }
 
-    public void Despawn()
-    {
-        
-    }
-
     public int gethealth()
     {
         return health;
     }
-
 
 }

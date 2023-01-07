@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RespawnEren : MonoBehaviour
 {
+    public AttributesManager playerHealth;
     [SerializeField] private Transform player;
     [SerializeField] private Transform respawnPoint;
 
@@ -13,6 +14,11 @@ public class RespawnEren : MonoBehaviour
         {
             player.transform.position = respawnPoint.transform.position;
             Physics.SyncTransforms();
+            playerHealth.Heal();
+            playerHealth.Heal();
+            playerHealth.Heal();
+            playerHealth.Heal();
+            playerHealth.Heal();
         }
     }
 }
