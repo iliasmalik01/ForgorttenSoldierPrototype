@@ -5,6 +5,10 @@ using UnityEngine.AI;
 
 public class SmallTitanAI : MonoBehaviour
 {
+    public AttributesManager playerAtm;
+    public AttributesManager Enemy;
+
+
     public NavMeshAgent agent;
 
     public Transform player;
@@ -26,9 +30,11 @@ public class SmallTitanAI : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    public Animator anim;
+
     private void Awake()
     {
-        player = GameObject.Find("Capsule").transform;
+        player = GameObject.Find("PlayerCharacter").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -83,8 +89,9 @@ public class SmallTitanAI : MonoBehaviour
 
         if (!alreadyAttacked)
         {
+            anim.SetTrigger("fight");
             //add attack code here
-
+            Enemy.DealDamage(playerAtm.gameObject);
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
@@ -96,17 +103,5 @@ public class SmallTitanAI : MonoBehaviour
     }
 
     //attacking enemies
-
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
-    }
-
-    private void DestroyEnemy()
-    {
-        Destroy(gameObject);
-    }
 
 }
